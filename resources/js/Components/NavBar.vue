@@ -6,19 +6,8 @@ import { useMainStore } from '@/Stores/main.js'
 import { useStyleStore } from '@/Stores/style.js'
 import { useLayoutStore } from '@/Stores/layout.js'
 import {
-  mdiForwardburger,
-  mdiBackburger,
-  mdiClose,
-  mdiDotsVertical,
-  mdiMenu,
-  mdiClockOutline,
-  mdiCloud,
-  mdiCrop,
   mdiAccount,
-  mdiCogOutline,
-  mdiEmail,
   mdiLogout,
-  mdiGithub,
   mdiThemeLightDark
 } from '@mdi/js'
 import NavBarItem from '@/Components/NavBarItem.vue'
@@ -26,8 +15,6 @@ import NavBarItemLabel from '@/Components/NavBarItemLabel.vue'
 import NavBarMenu from '@/Components/NavBarMenu.vue'
 import BaseDivider from '@/Components/BaseDivider.vue'
 import UserAvatarCurrentUser from '@/Components/UserAvatarCurrentUser.vue'
-import BaseIcon from '@/Components/BaseIcon.vue'
-import NavBarSearch from '@/Components/NavBarSearch.vue'
 
 const mainStore = useMainStore()
 
