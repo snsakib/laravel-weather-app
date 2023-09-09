@@ -44,14 +44,14 @@ const menuClick = (event, item) => {
   >
     <div
       :class="styleStore.asideStyle"
-      class="lg:rounded-xl flex-1 flex flex-col overflow-hidden dark:bg-slate-900"
+      class="lg:rounded-xl flex-1 flex flex-col overflow-hidden dark:bg-slate-900 py-3"
     >
       <div
         :class="styleStore.asideBrandStyle"
         class="flex flex-row h-14 items-center justify-between dark:bg-slate-900"
       >
-        <div class="text-center flex-1 lg:text-left lg:pl-6 xl:text-center xl:pl-0">
-          <b class="font-black">One</b>
+        <div class="flex justify-center w-full">
+          <img src="assets/img/iq-logo.svg" alt="IQ Logo">
         </div>
         <button 
           class="hidden lg:inline-block xl:hidden p-3"

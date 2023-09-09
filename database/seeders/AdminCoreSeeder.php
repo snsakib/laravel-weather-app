@@ -105,36 +105,6 @@ class AdminCoreSeeder extends Seeder
                 'uri'       => '/<admin>',
                 'enabled'   => 1,
                 'weight'    => 0,
-            ],
-            [
-                'name'      => 'Permissions',
-                'uri'       => '/<admin>/permission',
-                'enabled'   => 1,
-                'weight'    => 1,
-            ],
-            [
-                'name'      => 'Roles',
-                'uri'       => '/<admin>/role',
-                'enabled'   => 1,
-                'weight'    => 2,
-            ],
-            [
-                'name'      => 'Users',
-                'uri'       => '/<admin>/user',
-                'enabled'   => 1,
-                'weight'    => 3,
-            ],
-            [
-                'name'      => 'Menus',
-                'uri'       => '/<admin>/menu',
-                'enabled'   => 1,
-                'weight'    => 4,
-            ],
-            [
-                'name'      => 'Categories',
-                'uri'       => '/<admin>/category/type',
-                'enabled'   => 1,
-                'weight'    => 4,
             ]
         ];
 
