@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d3c6408ee2a98e7705caa45ef14c11e3",
+    "content-hash": "e1c8905bba0eb0a024cee4b8bf826c69",
     "packages": [
         {
             "name": "balajidharma/laravel-admin-core",

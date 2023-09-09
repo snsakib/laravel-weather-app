@@ -4,6 +4,13 @@ import SectionMain from '@/Components/SectionMain.vue';
 import LayoutAuthenticated from '@/Layouts/LayoutAuthenticated.vue';
 import WeatherReports from '@/Components/Home/WeatherReports.vue';
 import Statistics from '@/Components/Home/Statistics.vue';
+
+defineProps({
+  data: {
+    type: Array,
+    default: []
+  }
+})
 </script>
 
 <template>
@@ -11,7 +18,7 @@ import Statistics from '@/Components/Home/Statistics.vue';
     <Head title="Dashboard" />
     <SectionMain>
       <div class="flex flex-col md:flex-row">
-        <WeatherReports/>
+        <WeatherReports :data="data"/>
         <Statistics/>
       </div>
     </SectionMain>
