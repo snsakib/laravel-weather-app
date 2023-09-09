@@ -3,7 +3,6 @@ import { useLayoutStore } from '@/Stores/layout.js'
 import { useStyleStore } from '@/Stores/style.js'
 import NavBar from '@/Components/NavBar.vue'
 import AsideMenu from '@/Components/AsideMenu.vue'
-import FooterBar from '@/Components/FooterBar.vue'
 
 const styleStore = useStyleStore()
 
@@ -19,7 +18,6 @@ const layoutStore = useLayoutStore()
       <NavBar :class="{ 'ml-60 lg:ml-0': layoutStore.isAsideMobileExpanded }" />
       <AsideMenu />
       <slot />
-      <FooterBar />
     </div>
   </div>
 </template>
