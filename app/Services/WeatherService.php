@@ -52,7 +52,7 @@ class WeatherService
         $api_urls = [];
 
         foreach ($city_coordinates as $city_coordinate) {
-            $url = $this->url . "lat={$city_coordinate['lat']}&lon={$city_coordinate['lon']}&appid=" . env('OPEN_WEATHER_MAP_API_KEY');
+            $url = $this->url . "lat={$city_coordinate['lat']}&lon={$city_coordinate['lon']}&units=metric&appid=" . env('OPEN_WEATHER_MAP_API_KEY');
             $data = [
               'city' => $city_coordinate['city'],
               'url' => $url

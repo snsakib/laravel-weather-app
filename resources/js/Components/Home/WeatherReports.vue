@@ -9,7 +9,7 @@ defineProps({
 </script>
 
 <template>
-  <div class="w-full">
+  <div class="w-full px-3">
     <h1 class="font-bold text-2xl mb-5">Weather Reports</h1>
     <div class="grid grid-cols-3 gap-5">
       <WeatherCard v-for="(item, key) in data" :key="key" :data="item"/>
