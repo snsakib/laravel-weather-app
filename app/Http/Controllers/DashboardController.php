@@ -15,8 +15,6 @@ class DashboardController extends Controller
   public function index()
   {
     $data = $this->weatherService->getData();
-
-    $this->weatherService->storeData($data);
     
     return Inertia::render('Dashboard', [
       'data' => $data

@@ -80,6 +80,9 @@ class WeatherService
 
                 array_push($weather_data, $data);
             }
+
+            $this->storeData($weather_data);
+            
             return $weather_data;
         } catch (\Throwable $th) {
             return null;
@@ -87,7 +90,6 @@ class WeatherService
     }
 
     public function storeData($data) {
-
       foreach ($data as $item) {
         $weather_data = [
           'city' => $item['city'],
