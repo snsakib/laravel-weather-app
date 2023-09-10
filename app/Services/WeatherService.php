@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Models\WeatherData;
 use GuzzleHttp\Client;
 
 class WeatherService
@@ -83,5 +84,23 @@ class WeatherService
         } catch (\Throwable $th) {
             return null;
         }
+    }
+
+    public function storeData($data) {
+
+      foreach ($data as $item) {
+        $weather_data = [
+          'city' => $item['city'],
+          'lat' => $item['data']['coord']['lat'],
+          'lon' => $item['data']['coord']['lon'],
+          'condition' => $item['data']['weather'][0]['main'],
+          'temperature' => $item['data']['main']['temp'],
+          'feels_like' => $item['data']['main']['feels_like'],
+          'humidity' => $item['data']['main']['humidity'],
+          'wind_speed' => $item['data']['wind']['speed']
+        ];
+
+        WeatherData::create($weather_data);
+      }
     }
 }

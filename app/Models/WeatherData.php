@@ -9,11 +9,13 @@ class WeatherData extends Model
 {
     use HasFactory;
 
+    protected $table = 'weather_data';
+
     protected $fillable = [
       'city',
-      'coordinates',
       'lat',
       'lon',
+      'condition',
       'temperature',
       'feels_like',
       'humidity',
