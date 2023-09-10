@@ -66,13 +66,13 @@ const activeInactiveStyle = computed(
       <BaseIcon
         v-if="item.icon"
         :path="item.icon"
-        class="flex-none"
+        class="flex-none text-black"
         :class="activeInactiveStyle"
         w="w-16"
         :size="18"
       />
       <span
-        class="grow text-ellipsis line-clamp-1"
+        class="grow text-ellipsis line-clamp-1 text-black font-semibold"
         :class="activeInactiveStyle"
       >{{ item.name }}</span>
       <BaseIcon

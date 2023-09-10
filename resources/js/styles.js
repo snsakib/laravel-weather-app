@@ -1,7 +1,7 @@
 export const basic = {
   aside: 'bg-gray-800',
   asideScrollbars: 'aside-scrollbars-gray',
-  asideBrand: 'bg-gray-900 text-white',
+  asideBrand: 'text-white',
   asideMenuItem: 'text-gray-300 hover:text-white',
   asideMenuItemActive: 'font-bold text-white',
   asideMenuDropdown: 'bg-gray-700/50',

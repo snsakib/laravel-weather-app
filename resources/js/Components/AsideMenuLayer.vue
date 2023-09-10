@@ -22,9 +22,9 @@ const layoutStore = useLayoutStore()
 const styleStore = useStyleStore()
 
 const logoutItem = computed(() => ({
-  name: 'Logout',
+  name: '',
   icon: mdiLogout,
-  color: 'info',
+  color: '',
   link: '#'
 }))
 
@@ -40,17 +40,17 @@ const menuClick = (event, item) => {
 <template>
   <aside
     id="aside"
-    class="lg:py-2 lg:pl-2 w-60 fixed flex z-40 top-0 h-screen transition-position overflow-hidden"
+    class="bg-white lg:py-2 lg:pl-2 fixed flex z-40 top-0 h-screen transition-position overflow-hidden"
   >
     <div
       :class="styleStore.asideStyle"
-      class="lg:rounded-xl flex-1 flex flex-col overflow-hidden dark:bg-slate-900 pt-3"
+      class="bg-white lg:rounded-xl flex-1 flex flex-col overflow-hidden dark:bg-slate-900"
     >
       <div
         :class="styleStore.asideBrandStyle"
-        class="flex flex-row h-14 items-center justify-between dark:bg-slate-900"
+        class="flex flex-row h-14 items-center justify-between"
       >
-        <div class="flex justify-center w-full">
+        <div class="flex justify-center w-full bg-white">
           <img src="assets/img/iq-logo.svg" alt="IQ Logo">
         </div>
         <button 
