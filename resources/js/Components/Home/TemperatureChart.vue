@@ -1,15 +1,22 @@
 <script setup>
 import LineChart from "@/Components/Charts/LineChart.vue";
-import * as chartConfig from "@/Components/Charts/chart.config.js";
-import { ref, onMounted } from "vue";
+import { ref, onMounted, watch } from "vue";
 import axios from "axios";
+
+const props = defineProps({
+  city: {
+    type: String,
+    default: 'Dubai, UAE'
+  }
+});
 
 const chartData = ref([]);
 
 const fetchTempData = async () => {
+  const app_url = import.meta.env.VITE_APP_URL;
     try {
         let res = await axios.get(
-            "http://localhost:8000/api/getTemperature?city=Abu Dhabi, UAE&date=2023-09-10"
+            app_url + `/api/getTemperature?city=${props.city}&date=2023-09-10`
         );
         return res.data;
     } catch (error) {
@@ -17,7 +24,7 @@ const fetchTempData = async () => {
         throw error;
     }
 };
-// chartData.value = chartConfig.sampleChartData()
+
 onMounted(async () => {
     try {
         const data = await fetchTempData();
@@ -45,22 +52,7 @@ onMounted(async () => {
                     borderColor: 'blue',
                     tension: 0.5,
                 },
-            ],
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                scales: {
-                    xAxes: {
-                        type: "time",
-                        time: {
-                            unit: "second",
-                        },
-                    },
-                    yAxes: {
-                        beginAtZero: true,
-                    },
-                },
-            },
+            ]
         };
     } catch (error) {
         console.error("Error fetching data from API:", error);
@@ -71,6 +63,7 @@ onMounted(async () => {
 
 <template>
     <div class="w-full">
+      {{ city }}
         <div>
             <h1 class="font-bold text-xl my-3">Temperature (Last 24 Hours)</h1>
         </div>
