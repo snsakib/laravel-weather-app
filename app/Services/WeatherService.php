@@ -80,8 +80,6 @@ class WeatherService
 
                 array_push($weather_data, $data);
             }
-
-            $this->storeData($weather_data);
             
             return $weather_data;
         } catch (\Throwable $th) {
@@ -104,5 +102,12 @@ class WeatherService
 
         WeatherData::create($weather_data);
       }
+    }
+
+    public function getAndStoreData() {
+      $data = $this->getData();
+      $this->storeData($data);
+
+      return $data;
     }
 }
