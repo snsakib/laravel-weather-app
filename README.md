@@ -43,6 +43,9 @@ To change the Admin Prefix, change `prefix` on `config/admin.php` or add the `AD
 ```php
 'prefix' => env('ADMIN_PREFIX', 'admin'),
 ```
+```php
+php artisan schedule:work`
+```
 
 ## Also Try
 - [Build a Vue admin panel from scratch](https://blog.devgenius.io/laravel-creates-a-vue-admin-panel-from-scratch-part-1-installation-and-authentication-56c451d4d697)
