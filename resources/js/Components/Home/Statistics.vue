@@ -1,6 +1,7 @@
 <script setup>
 import TemperatureChart from '@/Components/Home/TemperatureChart.vue';
-import { watch } from 'vue';
+import WindChart from '@/Components/Home/WindChart.vue'
+import HumidityChart from '@/Components/Home/HumidityChart.vue';
 
 let selectedCity = 'Dubai, UAE';
 </script>
@@ -19,5 +20,7 @@ let selectedCity = 'Dubai, UAE';
       </select>
     </div>
     <TemperatureChart :city="selectedCity"/>
+    <WindChart :city="selectedCity"/>
+    <HumidityChart :city="selectedCity"/>
   </div>
 </template>

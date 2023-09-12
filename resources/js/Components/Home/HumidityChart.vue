@@ -31,7 +31,7 @@ ChartJS.register(
 );
 
 const loaded = ref(false)
-let tempDate = '';
+let humidityDate = ref('');
 
 const data = {
     labels: ["00","02","04","06","08","10","12","14","16","18","20","22","24",],
@@ -80,8 +80,8 @@ onMounted(async () => {
 <template>
     <div class="w-full my-5">
         <div class="flex flex-row justify-between my-3">
-            <h1 class="font-bold text-xl my-3">Temperature (Last 24 Hours)</h1>
-            <input type="date" name="temp-date" id="temp-date" class="border-none" v-model="tempDate">
+            <h1 class="font-bold text-xl my-3">Humidity (Last 24 Hours)</h1>
+            <input type="date" name="humidity-date" id="humidity-date" class="border-none" v-model="humidityDate">
         </div>
         <div class="w-full h-96">
             <Line :data="data" :options="options" v-if="loaded"/>
