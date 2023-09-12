@@ -64,15 +64,30 @@ const fetchTempData = async () => {
     }
 };
 
-onMounted(async () => {
+const updateChartData = async () => {
     try {
         loaded.value = false;
         const tempData = await fetchTempData();
-        data.datasets[0].data = tempData.data.map(item => item.temperature);
+        data.datasets[0].data = tempData.data.map((item) => item.temperature);
         loaded.value = true;
-      } catch (error) {
+    } catch (error) {
         console.error("Error fetching data from API:", error);
         throw error;
+    }
+};
+
+onMounted(async () => {
+    try {
+        await updateChartData();
+    } catch (error) {
+        console.error("Error fetching data from API:", error);
+        throw error;
+    }
+});
+
+watch(() => props.city, async (newCity, oldCity) => {
+    if (newCity !== oldCity) {
+        await updateChartData();
     }
 });
 </script>

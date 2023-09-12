@@ -17,7 +17,7 @@ const props = defineProps({
     city: {
         type: String,
         default: "Dubai, UAE",
-    }
+    },
 });
 
 ChartJS.register(
@@ -30,11 +30,25 @@ ChartJS.register(
     Legend
 );
 
-const loaded = ref(false)
-let tempDate = '';
+const loaded = ref(false);
+let tempDate = "";
 
 const data = {
-    labels: ["00","02","04","06","08","10","12","14","16","18","20","22","24",],
+    labels: [
+        "00",
+        "02",
+        "04",
+        "06",
+        "08",
+        "10",
+        "12",
+        "14",
+        "16",
+        "18",
+        "20",
+        "22",
+        "24",
+    ],
     datasets: [
         {
             label: "Temperature",
@@ -64,15 +78,30 @@ const fetchTempData = async () => {
     }
 };
 
-onMounted(async () => {
+const updateChartData = async () => {
     try {
         loaded.value = false;
         const tempData = await fetchTempData();
-        data.datasets[0].data = tempData.data.map(item => item.temperature);
+        data.datasets[0].data = tempData.data.map((item) => item.temperature);
         loaded.value = true;
-      } catch (error) {
+    } catch (error) {
         console.error("Error fetching data from API:", error);
         throw error;
+    }
+};
+
+onMounted(async () => {
+    try {
+        await updateChartData();
+    } catch (error) {
+        console.error("Error fetching data from API:", error);
+        throw error;
+    }
+});
+
+watch(() => props.city, async (newCity, oldCity) => {
+    if (newCity !== oldCity) {
+        await updateChartData();
     }
 });
 </script>
@@ -81,10 +110,16 @@ onMounted(async () => {
     <div class="w-full my-5">
         <div class="flex flex-row justify-between my-3">
             <h1 class="font-bold text-xl my-3">Temperature (Last 24 Hours)</h1>
-            <input type="date" name="temp-date" id="temp-date" class="border-none" v-model="tempDate">
+            <input
+                type="date"
+                name="temp-date"
+                id="temp-date"
+                class="border-none"
+                v-model="tempDate"
+            />
         </div>
         <div class="w-full h-96">
-            <Line :data="data" :options="options" v-if="loaded"/>
+            <Line :data="data" :options="options" v-if="loaded" />
         </div>
     </div>
 </template>

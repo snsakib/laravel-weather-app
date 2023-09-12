@@ -2,8 +2,9 @@
 import TemperatureChart from '@/Components/Home/TemperatureChart.vue';
 import WindChart from '@/Components/Home/WindChart.vue'
 import HumidityChart from '@/Components/Home/HumidityChart.vue';
+import { ref } from 'vue';
 
-let selectedCity = 'Dubai, UAE';
+let selectedCity = ref('Abu Dhabi, UAE');
 </script>
 
 <template>
