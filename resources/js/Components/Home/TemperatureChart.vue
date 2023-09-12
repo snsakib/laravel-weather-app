@@ -31,7 +31,7 @@ ChartJS.register(
 );
 
 const loaded = ref(false);
-let tempDate = "";
+const tempDate = ref(new Date().toISOString().split('T')[0]);
 
 const data = {
     labels: [
@@ -69,7 +69,7 @@ const fetchTempData = async () => {
     const app_url = import.meta.env.VITE_APP_URL;
     try {
         let res = await axios.get(
-            app_url + `/api/getTemperature?city=${props.city}&date=2023-09-10`
+            app_url + `/api/getTemperature?city=${props.city}&date=${tempDate.value}`
         );
         return res.data;
     } catch (error) {
@@ -99,8 +99,10 @@ onMounted(async () => {
     }
 });
 
-watch(() => props.city, async (newCity, oldCity) => {
-    if (newCity !== oldCity) {
+watch([() => props.city, () => tempDate.value], async ([newCity, newTempDate], [oldCity, oldTempDate]) => {
+    if (newCity !== oldCity || newTempDate !== oldTempDate) {
+      console.log(newCity)
+      console.log(newTempDate)
         await updateChartData();
     }
 });

@@ -31,7 +31,7 @@ ChartJS.register(
 );
 
 const loaded = ref(false)
-let humidityDate = ref('');
+const humidityDate = ref(new Date().toISOString().split('T')[0]);
 
 const data = {
     labels: ["00","02","04","06","08","10","12","14","16","18","20","22","24",],
@@ -55,7 +55,7 @@ const fetchTempData = async () => {
     const app_url = import.meta.env.VITE_APP_URL;
     try {
         let res = await axios.get(
-            app_url + `/api/getTemperature?city=${props.city}&date=2023-09-10`
+            app_url + `/api/getTemperature?city=${props.city}&date=${humidityDate.value}`
         );
         return res.data;
     } catch (error) {
@@ -85,8 +85,8 @@ onMounted(async () => {
     }
 });
 
-watch(() => props.city, async (newCity, oldCity) => {
-    if (newCity !== oldCity) {
+watch([() => props.city, () => humidityDate.value], async ([newCity, newHumidityDate], [oldCity, oldHumidityDate]) => {
+    if (newCity !== oldCity || newHumidityDate !== oldHumidityDate) {
         await updateChartData();
     }
 });
