@@ -55,7 +55,7 @@ const fetchTempData = async () => {
     const app_url = import.meta.env.VITE_APP_URL;
     try {
         let res = await axios.get(
-            app_url + `/api/getTemperature?city=${props.city}&date=${humidityDate.value}`
+            app_url + `/api/getHumidity?city=${props.city}&date=${humidityDate.value}`
         );
         return res.data;
     } catch (error) {

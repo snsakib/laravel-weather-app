@@ -21,3 +21,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get('weather-data', [WeatherDataController::class, 'getData']);
 Route::get('getTemperature', [WeatherDataController::class, 'getTemperature']);
+Route::get('getWind', [WeatherDataController::class, 'getWind']);
+Route::get('getHumidity', [WeatherDataController::class, 'getHumidity']);

@@ -30,4 +30,28 @@ class WeatherDataController extends Controller
 
       return response()->json(['data' => $data]);
     }
+
+    public function getWind(Request $request) {
+      $city = $request->query('city');
+      $date = Carbon::parse($request->query('date'));
+
+      $data = WeatherData::selectRaw('wind_speed, TIME(created_at) AS time')
+        ->where('city', $city)
+        ->whereDate('created_at', $date->toDateString())
+        ->get();
+
+      return response()->json(['data' => $data]);
+    }
+
+    public function getHumidity(Request $request) {
+      $city = $request->query('city');
+      $date = Carbon::parse($request->query('date'));
+
+      $data = WeatherData::selectRaw('humidity, TIME(created_at) AS time')
+        ->where('city', $city)
+        ->whereDate('created_at', $date->toDateString())
+        ->get();
+
+      return response()->json(['data' => $data]);
+    }
 }
