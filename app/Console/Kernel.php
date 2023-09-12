@@ -15,7 +15,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->command('fetch:weatherData')->everyMinute()->withoutOverlapping(30);
+        $schedule->command('fetch:weatherData')->everyTenMinutes()->withoutOverlapping(30);
     }
 
     /**
