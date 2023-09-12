@@ -16,7 +16,7 @@ import axios from "axios";
 const props = defineProps({
     city: {
         type: String,
-        default: "Dubai, UAE",
+        default: "Abu Dhabi, UAE",
     },
 });
 

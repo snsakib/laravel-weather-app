@@ -16,7 +16,7 @@ import axios from "axios";
 const props = defineProps({
     city: {
         type: String,
-        default: "Dubai, UAE",
+        default: "Abu Dhabi, UAE",
     }
 });
 
@@ -37,7 +37,7 @@ const data = {
     labels: ["00","02","04","06","08","10","12","14","16","18","20","22","24",],
     datasets: [
         {
-            label: "Temperature",
+            label: "Wind Speed",
             fill: false,
             borderColor: "blue",
             tension: 0.5,
@@ -51,7 +51,7 @@ const options = {
     maintainAspectRatio: false,
 };
 
-const fetchTempData = async () => {
+const fetchWindData = async () => {
     const app_url = import.meta.env.VITE_APP_URL;
     try {
         let res = await axios.get(
@@ -67,8 +67,8 @@ const fetchTempData = async () => {
 const updateChartData = async () => {
     try {
         loaded.value = false;
-        const tempData = await fetchTempData();
-        data.datasets[0].data = tempData.data.map((item) => item.temperature);
+        const windData = await fetchWindData();
+        data.datasets[0].data = windData.data.map((item) => item.wind_speed);
         loaded.value = true;
     } catch (error) {
         console.error("Error fetching data from API:", error);
