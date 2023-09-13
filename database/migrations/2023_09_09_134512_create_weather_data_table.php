@@ -19,10 +19,10 @@ return new class extends Migration
             $table->string('lat');
             $table->string('lon');
             $table->string('condition');
-            $table->decimal('temperature', 5, 2);
+            $table->decimal('temperature', 5, 2)->index();
             $table->decimal('feels_like', 5, 2);
-            $table->integer('humidity');
-            $table->decimal('wind_speed', 5, 2);
+            $table->integer('humidity')->index();
+            $table->decimal('wind_speed', 5, 2)->index();
             $table->timestamps();
         });
     }
