@@ -12,6 +12,7 @@ import {
 import { Line } from "vue-chartjs";
 import { onMounted, ref, watch } from "vue";
 import axios from "axios";
+import { average } from '@/Utils/helpers'
 
 const props = defineProps({
     city: {
@@ -39,7 +40,7 @@ const data = {
         {
             label: "Wind Speed",
             fill: false,
-            borderColor: "blue",
+            borderColor: "red",
             tension: 0.5,
             data: [],
         },
@@ -98,8 +99,13 @@ watch([() => props.city, () => windDate.value], async ([newCity, newWindDate], [
             <h1 class="font-bold text-xl my-3">Wind (Last 24 Hours)</h1>
             <input type="date" name="wind-date" id="wind-date" class="border-none" v-model="windDate">
         </div>
-        <div class="w-full h-96">
+        <div class="flex flex-row justify-between items-center h-96">
+          <div class="font-bold text-2xl">
+            {{ average(data.datasets[0].data) }} km/h
+          </div>
+          <div class="w-full">
             <Line :data="data" :options="options" v-if="loaded"/>
+          </div>
         </div>
     </div>
 </template>
