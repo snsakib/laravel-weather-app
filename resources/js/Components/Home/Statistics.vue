@@ -8,7 +8,7 @@ let selectedCity = ref("Abu Dhabi, UAE");
 </script>
 
 <template>
-    <div class="w-full p-3">
+    <div class="w-full p-3 grow">
         <div class="flex flex-row justify-between">
             <h1 class="font-bold text-2xl">Statistics</h1>
             <select
