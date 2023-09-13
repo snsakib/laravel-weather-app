@@ -109,7 +109,7 @@ watch([() => props.city, () => tempDate.value], async ([newCity, newTempDate], [
 </script>
 
 <template>
-    <div class="w-full my-5">
+    <div class="w-full my-5 chart-container">
         <div class="flex flex-row justify-between my-3">
             <h1 class="font-bold text-xl my-3">Temperature (Last 24 Hours)</h1>
             <input
@@ -125,3 +125,15 @@ watch([() => props.city, () => tempDate.value], async ([newCity, newTempDate], [
         </div>
     </div>
 </template>
+
+<style scoped>
+.chart-container {
+    flex-grow: 1;
+    min-height: 0;
+
+    > div {
+        position: relative;
+        height: 50%;
+    }
+}
+</style>

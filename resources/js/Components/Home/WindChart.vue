@@ -93,7 +93,7 @@ watch([() => props.city, () => windDate.value], async ([newCity, newWindDate], [
 </script>
 
 <template>
-    <div class="w-full my-5">
+    <div class="w-full my-5 chart-container">
         <div class="flex flex-row justify-between my-3">
             <h1 class="font-bold text-xl my-3">Wind (Last 24 Hours)</h1>
             <input type="date" name="wind-date" id="wind-date" class="border-none" v-model="windDate">
@@ -103,3 +103,15 @@ watch([() => props.city, () => windDate.value], async ([newCity, newWindDate], [
         </div>
     </div>
 </template>
+
+<style scoped>
+.chart-container {
+    flex-grow: 1;
+    min-height: 0;
+
+    > div {
+        position: relative;
+        height: 50%;
+    }
+}
+</style>
