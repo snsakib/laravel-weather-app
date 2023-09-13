@@ -1,10 +1,5 @@
 <h1 align="center">Laravel Vue Admin Panel</h1>
 <h3 align="center">A Single page Vue admin panel for Laravel projects.</h3>
-<p align="center">
-<a href="https://packagist.org/packages/balajidharma/laravel-vue-admin-panel"><img src="https://poser.pugx.org/balajidharma/laravel-vue-admin-panel/downloads" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/balajidharma/laravel-vue-admin-panel"><img src="https://poser.pugx.org/balajidharma/laravel-vue-admin-panel/v/stable" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/balajidharma/laravel-vue-admin-panel"><img src="https://poser.pugx.org/balajidharma/laravel-vue-admin-panel/license" alt="License"></a>
-</p>
 
 ## Built with
 - [Laravel 9](https://github.com/laravel/framework)
