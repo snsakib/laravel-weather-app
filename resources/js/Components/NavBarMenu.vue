@@ -36,27 +36,7 @@ onBeforeUnmount(() => {
   <NavBarItem
     ref="root"
     type="block"
-    :active="isDropdownActive"
-    dropdown
-    @click="toggle"
   >
-    <a
-      class="flex items-center py-2 px-3 dark:bg-slate-800 lg:bg-transparent lg:dark:bg-transparent"
-      :class="styleStore.navBarMenuListUpperLabelStyle"
-    >
-      <slot />
-      <BaseIcon
-        :path="toggleDropdownIcon"
-        class="hidden lg:inline-flex transition-colors"
-      />
-    </a>
-    <div
-      class="-mx-px text-sm border-b border-gray-100 lg:border lg:bg-white lg:absolute
-          lg:top-full lg:left-0 lg:min-w-full lg:z-20 lg:rounded-b lg:dark:bg-slate-800
-          dark:border-slate-700"
-      :class="{'lg:hidden':!isDropdownActive}"
-    >
-      <slot name="dropdown" />
-    </div>
+  <slot />
   </NavBarItem>
 </template>

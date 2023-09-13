@@ -62,36 +62,10 @@ const logout = () => {
           class="max-h-screen-menu overflow-y-auto lg:overflow-visible lg:flex lg:items-stretch lg:justify-end lg:ml-auto"
         >
           <NavBarMenu>
-            <NavBarItemLabel :label="userName">
+            <NavBarItemLabel>
               <UserAvatarCurrentUser class="w-6 h-6 mr-3 inline-flex" />
             </NavBarItemLabel>
-
-            <template #dropdown>
-              <NavBarItem route-name="admin.account.info">
-                <NavBarItemLabel
-                  :icon="mdiAccount"
-                  label="My Profile"
-                />
-              </NavBarItem>
-              <BaseDivider nav-bar />
-              <NavBarItem>
-                <NavBarItemLabel
-                  :icon="mdiLogout"
-                  label="Log Out"
-                />
-              </NavBarItem>
-            </template>
           </NavBarMenu>
-          <NavBarItem
-            is-desktop-icon-only
-            @click.prevent="toggleLightDark"
-          >
-            <NavBarItemLabel
-              :icon="mdiThemeLightDark"
-              label="Light/Dark"
-              is-desktop-icon-only
-            />
-          </NavBarItem>
         </div>
       </div>
     </div>
