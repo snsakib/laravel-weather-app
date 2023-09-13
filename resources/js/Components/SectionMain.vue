@@ -4,7 +4,7 @@ import { containerMaxW } from '@/config.js'
 
 <template>
   <section
-    class="p-6"
+    class="px-6"
     :class="containerMaxW"
   >
     <slot />

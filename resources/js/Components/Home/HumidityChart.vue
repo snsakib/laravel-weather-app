@@ -110,9 +110,9 @@ watch(
 </script>
 
 <template>
-    <div class="w-full my-5 chart-container">
+    <div class="w-full chart-container">
         <div class="flex flex-row justify-between my-3">
-            <h1 class="font-bold text-xl my-3">Humidity (Last 24 Hours)</h1>
+            <h1 class="font-bold text-xl">Humidity (Last 24 Hours)</h1>
             <input
                 type="date"
                 name="humidity-date"
