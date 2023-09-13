@@ -47,7 +47,7 @@ To change the Admin Prefix, change `prefix` on `config/admin.php` or add the `AD
 
 #### Run the Cron job
 - Open your server's crontab configuration by running `crontab -e`
-- Add the following line to schedule Laravel's task scheduler to run every minute:
+- Add the following line to schedule Laravel's task scheduler to run every ten minute:
 ```php
 * * * * * cd /path-to-your-laravel-project && php artisan schedule:run >> /dev/null 2>&1
 ```
